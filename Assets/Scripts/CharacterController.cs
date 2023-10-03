@@ -26,7 +26,7 @@ public class CharacterController : MonoBehaviour
 
     }
 
-    void FixedUpdate()
+    void Update()
     {
         if (transform.position.y <= GroundLevel)
         {
