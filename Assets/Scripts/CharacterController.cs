@@ -12,11 +12,15 @@ public enum CharacterState
 }
 public class CharacterController : MonoBehaviour
 {
+    [Header("Jump")]
+
     public CharacterState JumpingState = CharacterState.Airborne;
 
     public float JumpSpeedFactor = 2.0f;
     public float JumpMaxHeight = 64.0f;
     public float JumpHeightDelta = 0.0f;
+
+    [Header("Movement")]
 
     public float MovementSpeedPerSecond = 100.0f;
     public float GravityPerSecond = 160.0f;
