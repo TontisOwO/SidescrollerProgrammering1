@@ -3,17 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public enum CharacterState
-{
-    Grounded,
-    Airborne,
-    Jumping,
-    Total
-}
-public class CharacterController : MonoBehaviour
+public class PhysicsController : MonoBehaviour
 {
     [Header("Jump")]
-    
+
     public CharacterState JumpingState = CharacterState.Airborne;
 
     public float JumpSpeedFactor = 2.0f;
