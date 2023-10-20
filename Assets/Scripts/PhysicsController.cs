@@ -5,6 +5,8 @@ using UnityEngine.EventSystems;
 
 public class PhysicsController : MonoBehaviour
 {
+    public Rigidbody2D myRigidbody = null;
+
     [Header("Jump")]
 
     public CharacterState JumpingState = CharacterState.Airborne;
@@ -16,36 +18,30 @@ public class PhysicsController : MonoBehaviour
     [Header("Movement")]
 
     public float MovementSpeedPerSecond = 100.0f;
-    public float GravityPerSecond = 160.0f;
-    public float GroundLevel = -16.0f;
-    void Start()
+
+    private void Update()
     {
-
-    }
-
-    void Update()
-    {
-        if (transform.position.y <= GroundLevel)
-        {
-            Vector3 characterPosition = transform.position;
-            characterPosition.y = GroundLevel;
-            transform.position = characterPosition;
-            JumpingState = CharacterState.Grounded;
-        }
-
         if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
             JumpingState = CharacterState.Jumping;
             JumpHeightDelta = 0.0f;
-
         }
+    }
+
+    void FixedUpdate()
+    {
+        Vector3 characterVelocity = myRigidbody.velocity;
+        characterVelocity.x = 0.0f;
+        characterVelocity.y = 0.0f;
+
+
+        
         if (JumpingState == CharacterState.Jumping)
         {
-            Vector3 characterPosition = transform.position;
-            float totalJumpMovementThisFrame = MovementSpeedPerSecond * JumpSpeedFactor * Time.deltaTime;
-            characterPosition.y += totalJumpMovementThisFrame;
-            transform.position = characterPosition;
-            JumpHeightDelta += totalJumpMovementThisFrame;
+            float totalJumpMovementThisFrame = MovementSpeedPerSecond * JumpSpeedFactor;
+            characterVelocity.y += totalJumpMovementThisFrame;
+            JumpHeightDelta += totalJumpMovementThisFrame*Time.deltaTime;
+
             if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W))
             {
                 JumpingState = CharacterState.Airborne;
@@ -61,29 +57,14 @@ public class PhysicsController : MonoBehaviour
 
         if (Input.GetKey(KeyCode.A))
         {
-            Vector3 characterPosition = gameObject.transform.position;
-            characterPosition.x -= MovementSpeedPerSecond * Time.deltaTime;
-            gameObject.transform.position = characterPosition;
+            characterVelocity.x -= MovementSpeedPerSecond;
         }
 
         if (Input.GetKey(KeyCode.D))
         {
-            Vector3 characterPosition = gameObject.transform.position;
-            characterPosition.x += MovementSpeedPerSecond * Time.deltaTime;
-            gameObject.transform.position = characterPosition;
+            characterVelocity.x += MovementSpeedPerSecond;
         }
-
-        if (JumpingState == CharacterState.Airborne)
-        {
-            Vector3 gravityPosition = gameObject.transform.position;
-            gravityPosition.y -= GravityPerSecond * Time.deltaTime;
-            if (gravityPosition.y < GroundLevel)
-            {
-                gravityPosition.y = GroundLevel;
-            }
-            gameObject.transform.position = gravityPosition;
-        }
-
-    }
+        myRigidbody.velocity = characterVelocity;
+    }   
 
 }
