@@ -393,6 +393,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Dude
       objectReference: {fileID: 0}
+    - target: {fileID: 6518240857258525881, guid: 19561202b5b0d99478cf2d92c1a04281, type: 3}
+      propertyPath: JumpSpeedFactor
+      value: 2.5
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

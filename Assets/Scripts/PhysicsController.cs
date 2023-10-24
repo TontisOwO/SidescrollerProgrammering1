@@ -11,8 +11,8 @@ public class PhysicsController : MonoBehaviour
 
     public CharacterState JumpingState = CharacterState.Airborne;
 
-    public float JumpSpeedFactor = 2.0f;
-    public float JumpMaxHeight = 64.0f;
+    public float JumpSpeedFactor = 3.0f;
+    public float JumpMaxHeight = 80.0f;
     public float JumpHeightDelta = 0.0f;
 
     [Header("Movement")]
