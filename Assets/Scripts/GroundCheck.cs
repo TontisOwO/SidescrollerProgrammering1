@@ -9,4 +9,5 @@ public class GroundCheck : MonoBehaviour
     {
         myCharacterController.JumpingState = CharacterState.Grounded;
     }
+   
 }

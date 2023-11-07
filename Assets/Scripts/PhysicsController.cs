@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -33,8 +34,6 @@ public class PhysicsController : MonoBehaviour
         Vector3 characterVelocity = myRigidbody.velocity;
         characterVelocity.x = 0.0f;
         characterVelocity.y = 0.0f;
-
-
         
         if (JumpingState == CharacterState.Jumping)
         {
@@ -42,18 +41,16 @@ public class PhysicsController : MonoBehaviour
             characterVelocity.y += totalJumpMovementThisFrame;
             JumpHeightDelta += totalJumpMovementThisFrame*Time.deltaTime;
 
-            if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W))
+            if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W) || JumpingState == CharacterState.Airborne)
             {
                 JumpingState = CharacterState.Airborne;
             }
         }
 
-        //if (Input.GetKey(KeyCode.S))
-        //{
-        //    Vector3 characterPosition = gameObject.transform.position;
-        //    characterPosition.y -= MovementSpeedPerSecond * Time.deltaTime;
-        //    gameObject.transform.position = characterPosition;
-        //}
+        if (Input.GetKey(KeyCode.S) && JumpingState == CharacterState.Airborne)
+        {
+            characterVelocity.y -= MovementSpeedPerSecond;
+        }
 
         if (Input.GetKey(KeyCode.A))
         {
@@ -64,6 +61,7 @@ public class PhysicsController : MonoBehaviour
         {
             characterVelocity.x += MovementSpeedPerSecond;
         }
+
         myRigidbody.velocity = characterVelocity;
     }   
 
