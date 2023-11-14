@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class EnemyCollision : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public EnemyScript myEnemyScript = null;
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Vector3 enemyscale = myEnemyScript.transform.localScale;
+        enemyscale.x = -enemyscale.x;
+        myEnemyScript.transform.localScale = enemyscale;
+        myEnemyScript.MovementSign *= -1;
     }
 }
