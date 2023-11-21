@@ -89,6 +89,13 @@ public class PhysicsController : MonoBehaviour
             HeadCheckCollision.y = -8.0f;
 
         }
+
+        myRigidbody.gravityScale = 500.0f;
+
+        if (JumpingState == CharacterState.Grounded)
+        {
+            myRigidbody.gravityScale = 0.0f;
+        }
      
         if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
@@ -100,9 +107,9 @@ public class PhysicsController : MonoBehaviour
         {
             float totalJumpMovementThisFrame = MovementSpeedPerSecond * JumpSpeedFactor;
             characterVelocity.y += totalJumpMovementThisFrame;
-            JumpHeightDelta += totalJumpMovementThisFrame*Time.deltaTime;
+            JumpHeightDelta += totalJumpMovementThisFrame * Time.deltaTime;
 
-            if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W) || JumpingState == CharacterState.Airborne)
+            if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W))
             {
                 JumpingState = CharacterState.Airborne;
             }

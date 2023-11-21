@@ -9,5 +9,15 @@ public class GroundCheck : MonoBehaviour
     {
         myCharacterController.JumpingState = CharacterState.Grounded;
     }
-   
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (myCharacterController.JumpingState != CharacterState.Jumping)
+        {
+            myCharacterController.JumpingState = CharacterState.Airborne;
+        }
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        myCharacterController.JumpingState = CharacterState.Grounded;
+    }
 }
