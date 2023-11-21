@@ -7,6 +7,10 @@ public class HeadCheck : MonoBehaviour
     public PhysicsController myCharacterController = null;
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        myCharacterController.JumpingState = CharacterState.Airborne;
+        if (myCharacterController.JumpingState != CharacterState.Grounded)
+        {
+            myCharacterController.JumpingState = CharacterState.Airborne;
+
+        }
     }
 }

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4865233934313870565}
   - component: {fileID: 2580315318971728089}
   - component: {fileID: 4191176802239813239}
+  - component: {fileID: 666100862642427669}
   m_Layer: 0
   m_Name: Collision Left
   m_TagString: Untagged
@@ -65,7 +66,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: 0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -76,7 +77,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.1, y: 14}
+  m_Size: {x: 0.5, y: 5}
   m_EdgeRadius: 0
 --- !u!114 &4191176802239813239
 MonoBehaviour:
@@ -91,6 +92,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myEnemyScript: {fileID: 3404236104374613613}
+--- !u!114 &666100862642427669
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 964937383568328311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361010d4502404688aec40752f5d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlayer: 0
+  damageValue: -1
 --- !u!1 &2971109444985124036
 GameObject:
   m_ObjectHideFlags: 0
@@ -238,7 +253,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: 0, y: -0.5}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -249,7 +264,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 16, y: 16}
+  m_Size: {x: 16, y: 15}
   m_EdgeRadius: 0
 --- !u!114 &3404236104374613613
 MonoBehaviour:
@@ -263,6 +278,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 700582b3ad662dd4eae06f3f453d2911, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  HealthPoints: 1
   myRigidBody: {fileID: 1123341609635616407}
   MovementSpeedPerSecond: 50
   MovementSign: 1

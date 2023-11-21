@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3335020689773595802}
   - component: {fileID: 3004161017667944417}
   - component: {fileID: 1117942759070478794}
+  - component: {fileID: 2695765577615826763}
   m_Layer: 0
   m_Name: CollisionCheckObject
   m_TagString: Untagged
@@ -91,6 +92,111 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCharacterController: {fileID: 6518240857258525881}
+--- !u!114 &2695765577615826763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1504692074554190421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 88361010d4502404688aec40752f5d2d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsPlayer: 1
+  damageValue: -1
+--- !u!1 &3822006082496642926
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5507784969408210214}
+  - component: {fileID: 3943018118165183198}
+  - component: {fileID: 5085242016255464522}
+  m_Layer: 0
+  m_Name: HeadCollisionJumpObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &5507784969408210214
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822006082496642926}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 16, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1018591784234041009}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &3943018118165183198
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822006082496642926}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8fc63d37a8d80f4429ee8c16f05dcae7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  myCharacterController: {fileID: 6518240857258525881}
+--- !u!61 &5085242016255464522
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3822006082496642926}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_ForceSendLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ForceReceiveLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_ContactCaptureLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_CallbackLayers:
+    serializedVersion: 2
+    m_Bits: 4294967295
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 8, y: 0.1}
+  m_EdgeRadius: 0
 --- !u!1 &4435059985540761081
 GameObject:
   m_ObjectHideFlags: 0
@@ -104,6 +210,7 @@ GameObject:
   - component: {fileID: 5567013273827192124}
   - component: {fileID: 6936665426351006432}
   - component: {fileID: 6518240857258525881}
+  - component: {fileID: 1128584717592007430}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -125,6 +232,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3335020689773595802}
+  - {fileID: 5507784969408210214}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!212 &6974069170420204568
@@ -194,7 +302,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 500
+  m_GravityScale: 400
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -264,9 +372,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myCamera: {fileID: 644497727577076035, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
-  hight: 0
   target: {fileID: 4700569706802378817, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
-  sceneLoader: {fileID: -4759258895554080705, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+  sceneLoader: {fileID: 0}
   cameraMovePos: 0
   myRigidbody: {fileID: 5567013273827192124}
   MovementSpeedPerSecond: 100
@@ -283,3 +390,16 @@ MonoBehaviour:
   mySpriteRenderer: {fileID: 6974069170420204568}
   myBoxCollider2D: {fileID: 6936665426351006432}
   groundCheckCollider: {fileID: 3004161017667944417}
+  headCheckCollider: {fileID: 5085242016255464522}
+--- !u!114 &1128584717592007430
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435059985540761081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62f02c94f5b973b4ebe5f7a154246770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

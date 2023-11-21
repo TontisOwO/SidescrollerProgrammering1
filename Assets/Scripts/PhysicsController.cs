@@ -11,7 +11,6 @@ public class PhysicsController : MonoBehaviour
     [Header("Camera")]
 
     public Camera myCamera;
-    public float hight = 0.0f;
     public Transform target;
     public SceneLoader sceneLoader;
     public float cameraMovePos = 0.0f;
@@ -43,6 +42,7 @@ public class PhysicsController : MonoBehaviour
     public SpriteRenderer mySpriteRenderer = null;
     public BoxCollider2D myBoxCollider2D = null;
     public BoxCollider2D groundCheckCollider = null;
+    public BoxCollider2D headCheckCollider = null;
 
     private void Start()
     {
@@ -51,6 +51,14 @@ public class PhysicsController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(HealthPoints <= 0)
+        {
+            SceneLoader mySceneLoader = gameObject.GetComponent<SceneLoader>();
+            if (mySceneLoader != null)
+            {
+                mySceneLoader.LoadScene("GameOver");
+            }
+        }
         Vector3 characterVelocity = myRigidbody.velocity;
         characterVelocity.x = 0.0f;
         characterVelocity.y = 0.0f;
@@ -59,11 +67,12 @@ public class PhysicsController : MonoBehaviour
         boxCollision.y = 32.0f;
         Vector2 GroundCheckCollision = groundCheckCollider.offset;
         GroundCheckCollision.y = 0.0f;
+        Vector2 HeadCheckCollision = headCheckCollider.offset;
+        HeadCheckCollision.y = 0.0f;
 
         int healthCopy = HealthPoints - 1;
 
         Vector3 screenPos = myCamera.WorldToScreenPoint(target.position);
-        hight = screenPos.y;
 
         if (healthCopy < 0)
         {
@@ -76,26 +85,15 @@ public class PhysicsController : MonoBehaviour
         if (healthCopy == 0)
         {
             boxCollision.y = 16.0f;
-        }
-        if (healthCopy == 0)
-        {
             GroundCheckCollision.y = 8.0f;
-        }
+            HeadCheckCollision.y = -8.0f;
 
+        }
+     
         if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
             JumpingState = CharacterState.Jumping;
             JumpHeightDelta = 0.0f;
-        }
-
-        if (hight < 0)
-        {
-            Vector3 characterPosition = gameObject.transform.position;
-            characterPosition.y = 10;
-            gameObject.transform.position = characterPosition;
-            characterVelocity.y = 0;
-            myRigidbody.velocity = characterVelocity;
-            HealthPoints = HealthPoints - 1;
         }
 
         if (JumpingState == CharacterState.Jumping)
@@ -131,6 +129,11 @@ public class PhysicsController : MonoBehaviour
         mySpriteRenderer.sprite = HealthAmountSprite[healthCopy];
         myBoxCollider2D.size = boxCollision;
         groundCheckCollider.offset = GroundCheckCollision;
+        headCheckCollider.offset = HeadCheckCollision;
     }
 
+    public void TakeDamage(int aHealthValue)
+    {
+        HealthPoints += aHealthValue;
+    }
 }
