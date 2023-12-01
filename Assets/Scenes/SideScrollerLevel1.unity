@@ -1308,10 +1308,6 @@ PrefabInstance:
       value: Pole
       objectReference: {fileID: 0}
     - target: {fileID: 2553918319525729686, guid: e7f1374255946264eaabd55f545da4b7, type: 3}
-      propertyPath: m_LocalScale.x
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2553918319525729686, guid: e7f1374255946264eaabd55f545da4b7, type: 3}
       propertyPath: m_LocalPosition.x
       value: 386.5
       objectReference: {fileID: 0}
@@ -1351,9 +1347,9 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 7099206267779434143, guid: e7f1374255946264eaabd55f545da4b7, type: 3}
-      propertyPath: m_Size.y
-      value: 64
+    - target: {fileID: 7356901414078214749, guid: e7f1374255946264eaabd55f545da4b7, type: 3}
+      propertyPath: NextScene
+      value: SideScrollerLevel2
       objectReference: {fileID: 0}
     - target: {fileID: 7356901414078214749, guid: e7f1374255946264eaabd55f545da4b7, type: 3}
       propertyPath: mySceneLoader

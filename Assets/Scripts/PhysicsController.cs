@@ -8,6 +8,14 @@ using static UnityEngine.GraphicsBuffer;
 
 public class PhysicsController : MonoBehaviour
 {
+    [Header("Animation")]
+
+    public Animator myAnimator;
+
+    [Header("File")]
+
+
+
     [Header("Camera")]
 
     public Camera myCamera;
@@ -35,7 +43,7 @@ public class PhysicsController : MonoBehaviour
 
     public float HealthMaxPoints = 3.0f;
     public int HealthPoints = 1;
-
+    public float Immunity = 0.0f;
 
     [Header("Sprites")]
     public List<Sprite> HealthAmountSprite = new List<Sprite>();
@@ -51,6 +59,8 @@ public class PhysicsController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Immunity = Immunity - 0.1f;
+
         if(HealthPoints <= 0)
         {
             SceneLoader mySceneLoader = gameObject.GetComponent<SceneLoader>();
@@ -114,7 +124,7 @@ public class PhysicsController : MonoBehaviour
                 JumpingState = CharacterState.Airborne;
             }
         }
-
+        myAnimator.SetBool("IsRunning", false);
         if (Input.GetKey(KeyCode.S) && JumpingState == CharacterState.Airborne)
         {
             characterVelocity.y -= MovementSpeedPerSecond;
@@ -123,11 +133,19 @@ public class PhysicsController : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             characterVelocity.x -= MovementSpeedPerSecond;
+            myAnimator.SetBool("IsRunning", true);
+            Vector3 playerScale = transform.localScale;
+            playerScale.x = -(Mathf.Abs(playerScale.x));
+            transform.localScale = playerScale;
         }
-
+    
         if (Input.GetKey(KeyCode.D))
         {
             characterVelocity.x += MovementSpeedPerSecond;
+            myAnimator.SetBool("IsRunning", true);
+            Vector3 playerScale = transform.localScale;
+            playerScale.x = (Mathf.Abs(playerScale.x));
+            transform.localScale = playerScale;
         }
 
         cameraMovePos = gameObject.transform.position.x;
@@ -142,5 +160,6 @@ public class PhysicsController : MonoBehaviour
     public void TakeDamage(int aHealthValue)
     {
         HealthPoints += aHealthValue;
+        Immunity = 2.0f;
     }
 }

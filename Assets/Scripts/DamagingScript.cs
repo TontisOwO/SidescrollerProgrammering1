@@ -20,11 +20,19 @@ public class DamagingScript : MonoBehaviour
         else
         {
             var PlayerScript = collision.gameObject.GetComponent<PhysicsController>();
-            if (PlayerScript != null)
+            if (PlayerScript != null && PlayerScript.Immunity <= 0.0f)
             {
                 PlayerScript.TakeDamage(damageValue);
             }
         }
         
+    }
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        var PlayerScript = collision.gameObject.GetComponent<PhysicsController>();
+        if (PlayerScript != null && PlayerScript.Immunity <= 0.0f)
+        {
+            PlayerScript.TakeDamage(damageValue);
+        }
     }
 }

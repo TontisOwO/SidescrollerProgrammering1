@@ -9,9 +9,12 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: cc7046b3a6f54524c97c362548680783
   - enabled: 1
+    path: Assets/Scenes/GameOver.unity
+    guid: 8b366354c9c2edb41b3a4984434d325a
+  - enabled: 1
     path: Assets/Scenes/SideScrollerLevel1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
-    path: Assets/Scenes/GameOver.unity
-    guid: 8b366354c9c2edb41b3a4984434d325a
+    path: Assets/Scenes/SideScrollerLevel2.unity
+    guid: f7da7b03fe6ca004d9ec58ece8258164
   m_configObjects: {}

@@ -118,4 +118,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 88361010d4502404688aec40752f5d2d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damageValue: 1000
+  IsPlayer: 0
+  damageValue: -1000

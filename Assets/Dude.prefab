@@ -211,6 +211,7 @@ GameObject:
   - component: {fileID: 6936665426351006432}
   - component: {fileID: 6518240857258525881}
   - component: {fileID: 1128584717592007430}
+  - component: {fileID: 362397508928376411}
   m_Layer: 0
   m_Name: Dude
   m_TagString: Untagged
@@ -371,6 +372,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 31494dd6e02847b4b9cbb92f53f4ea1a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  myAnimator: {fileID: 362397508928376411}
   myCamera: {fileID: 644497727577076035, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
   target: {fileID: 4700569706802378817, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
   sceneLoader: {fileID: 0}
@@ -383,6 +385,7 @@ MonoBehaviour:
   JumpHeightDelta: 0
   HealthMaxPoints: 3
   HealthPoints: 1
+  Immunity: 0
   HealthAmountSprite:
   - {fileID: 21300000, guid: 4c39b3baebbed6c41b73d228a63def90, type: 3}
   - {fileID: 21300000, guid: cd26c0752f88f1d4ca767c817a3463b1, type: 3}
@@ -403,3 +406,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62f02c94f5b973b4ebe5f7a154246770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &362397508928376411
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4435059985540761081}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 110ba01ade037fa4d91d5a8f14e21543, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
