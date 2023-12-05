@@ -30,14 +30,17 @@ public class PhysicsController : MonoBehaviour
     [Header("Movement")]
 
     public float MovementSpeedPerSecond = 100.0f;
+    public float OriginalMovementSpeed = 100.0f;
+    public bool IsDashing = false;
 
     [Header("Jump")]
 
     public CharacterState JumpingState = CharacterState.Airborne;
 
-    public float JumpSpeedFactor = 3.0f;
+    public float JumpSpeedFactor = 2.5f;
     public float JumpMaxHeight = 80.0f;
     public float JumpHeightDelta = 0.0f;
+    public bool DashJump = false;
 
     [Header("Health")]
 
@@ -59,6 +62,8 @@ public class PhysicsController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        IsDashing = false;
+
         Immunity = Immunity - 0.1f;
 
         if(HealthPoints <= 0)
@@ -99,37 +104,55 @@ public class PhysicsController : MonoBehaviour
             HeadCheckCollision.y = -8.0f;
 
         }
-
         myRigidbody.gravityScale = 500.0f;
-
+        //(Fix for slow movement on ground)
         if (JumpingState == CharacterState.Grounded)
         {
             myRigidbody.gravityScale = 0.0f;
         }
-     
+        //Dash
+        if (Input.GetKey(KeyCode.Space))
+        {
+            MovementSpeedPerSecond = MovementSpeedPerSecond * 1.2f;
+            if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
+            {
+                IsDashing = true;
+            }
+        }
+        //Jump Trigger
         if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
         {
             JumpingState = CharacterState.Jumping;
             JumpHeightDelta = 0.0f;
+            if (IsDashing == true)
+            {
+                DashJump = true;
+            }
         }
-
+        //Jump Action
         if (JumpingState == CharacterState.Jumping)
         {
-            float totalJumpMovementThisFrame = MovementSpeedPerSecond * JumpSpeedFactor;
+            if (DashJump == true)
+            {
+                JumpMaxHeight = 112.0f;
+            }
+            float totalJumpMovementThisFrame = OriginalMovementSpeed * JumpSpeedFactor;
             characterVelocity.y += totalJumpMovementThisFrame;
             JumpHeightDelta += totalJumpMovementThisFrame * Time.deltaTime;
 
             if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W))
             {
                 JumpingState = CharacterState.Airborne;
+                DashJump = false;
             }
         }
         myAnimator.SetBool("IsRunning", false);
+        //Fast Fall
         if (Input.GetKey(KeyCode.S) && JumpingState == CharacterState.Airborne)
         {
             characterVelocity.y -= MovementSpeedPerSecond;
         }
-
+        //Move Left
         if (Input.GetKey(KeyCode.A))
         {
             characterVelocity.x -= MovementSpeedPerSecond;
@@ -138,7 +161,7 @@ public class PhysicsController : MonoBehaviour
             playerScale.x = -(Mathf.Abs(playerScale.x));
             transform.localScale = playerScale;
         }
-    
+        //Move Right
         if (Input.GetKey(KeyCode.D))
         {
             characterVelocity.x += MovementSpeedPerSecond;
@@ -147,7 +170,7 @@ public class PhysicsController : MonoBehaviour
             playerScale.x = (Mathf.Abs(playerScale.x));
             transform.localScale = playerScale;
         }
-
+        MovementSpeedPerSecond = OriginalMovementSpeed;
         cameraMovePos = gameObject.transform.position.x;
         sceneLoader.MoveCamera(cameraMovePos);
         myRigidbody.velocity = characterVelocity;
@@ -155,6 +178,7 @@ public class PhysicsController : MonoBehaviour
         myBoxCollider2D.size = boxCollision;
         groundCheckCollider.offset = GroundCheckCollision;
         headCheckCollider.offset = HeadCheckCollision;
+        JumpMaxHeight = 80.0f;
     }
 
     public void TakeDamage(int aHealthValue)

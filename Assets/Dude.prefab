@@ -379,10 +379,13 @@ MonoBehaviour:
   cameraMovePos: 0
   myRigidbody: {fileID: 5567013273827192124}
   MovementSpeedPerSecond: 100
+  OriginalMovementSpeed: 100
+  IsDashing: 0
   JumpingState: 1
-  JumpSpeedFactor: 2
-  JumpMaxHeight: 112
+  JumpSpeedFactor: 2.5
+  JumpMaxHeight: 80
   JumpHeightDelta: 0
+  DashJump: 0
   HealthMaxPoints: 3
   HealthPoints: 1
   Immunity: 0
@@ -414,7 +417,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4435059985540761081}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 110ba01ade037fa4d91d5a8f14e21543, type: 2}
   m_CullingMode: 0
