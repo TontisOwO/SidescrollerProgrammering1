@@ -114,7 +114,7 @@ public class PhysicsController : MonoBehaviour
             myRigidbody.gravityScale = 0.0f;
         }
         //Dash
-        if (Input.GetKey(KeyCode.Space))
+        if (Input.GetKey(KeyCode.LeftShift))
         {
             MovementSpeedPerSecond = MovementSpeedPerSecond * 1.2f;
             if (Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.D))
@@ -123,7 +123,7 @@ public class PhysicsController : MonoBehaviour
             }
         }
         //Jump Trigger
-        if (Input.GetKey(KeyCode.W) && JumpingState == CharacterState.Grounded)
+        if (Input.GetKey(KeyCode.Space) && JumpingState == CharacterState.Grounded)
         {
             JumpingState = CharacterState.Jumping;
             JumpHeightDelta = 0.0f;
@@ -143,7 +143,7 @@ public class PhysicsController : MonoBehaviour
             characterVelocity.y += totalJumpMovementThisFrame;
             JumpHeightDelta += totalJumpMovementThisFrame * Time.deltaTime;
 
-            if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.W))
+            if (JumpHeightDelta >= JumpMaxHeight || !Input.GetKey(KeyCode.Space))
             {
                 JumpingState = CharacterState.Airborne;
                 DashJump = false;
