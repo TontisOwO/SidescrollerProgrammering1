@@ -193,3 +193,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0338b856f891c0e4192840bb96fa614a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentPlayerPoints: {fileID: 11400000, guid: c207a27c7a2430b4495632445d6db9ef, type: 2}

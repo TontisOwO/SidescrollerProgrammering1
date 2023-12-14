@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using Unity.Burst.CompilerServices;
 using Unity.VisualScripting;
 using UnityEngine;
@@ -14,7 +15,8 @@ public class PhysicsController : MonoBehaviour
 
     [Header("File")]
 
-
+    public PlayerData CurrentPlayerPoints = null;
+    public TextMeshProUGUI PointText = null;
 
     [Header("Camera")]
 
@@ -62,6 +64,7 @@ public class PhysicsController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        PointText.text = "Score:" + CurrentPlayerPoints.PlayerPoints;
         IsDashing = false;
 
         Immunity = Immunity - 0.1f;
