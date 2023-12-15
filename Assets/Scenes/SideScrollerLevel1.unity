@@ -2012,6 +2012,26 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 400
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 300
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_ReferencePixelsPerUnit
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 3426967122092025742, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -2054,6 +2074,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4700569706802378817, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062017489205064972, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 69
+      objectReference: {fileID: 0}
+    - target: {fileID: 5062017489205064972, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 120
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204594521143174801, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1657490496}
+    - target: {fileID: 5204594521143174801, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204594521143174801, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_PixelPerfect
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

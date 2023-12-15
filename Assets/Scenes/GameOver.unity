@@ -332,6 +332,22 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_UiScaleMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_PresetInfoIsWorld
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 165685913027099267, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 475
+      objectReference: {fileID: 0}
     - target: {fileID: 3426967122092025742, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
       propertyPath: m_Name
       value: Main Camera
@@ -374,6 +390,66 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4700569706802378817, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5204594521143174801, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_Camera
+      value: 
+      objectReference: {fileID: 1344844862}
+    - target: {fileID: 5204594521143174801, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_RenderMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_Pivot.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_Pivot.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6233129285891853547, guid: be2e013e66eee564b8cc87e667920b27, type: 3}
+      propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
@@ -438,7 +514,7 @@ MonoBehaviour:
   m_ReferencePixelsPerUnit: 1
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 400, y: 300}
-  m_ScreenMatchMode: 0
+  m_ScreenMatchMode: 2
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
   m_FallbackScreenDPI: 96
